@@ -43,7 +43,9 @@ public class UniqueFilenameGenerator {
                 Joiner.on("-").join(from(uriPathNodes).skip(nodeCount - min(nodeCount, 2))) :
                 "(root)";
 
-
+        // added to remove : from file names - Michael Conway
+        pathPart = pathPart.replace(":", "_");
+                
         return new StringBuilder(prefix)
                 .append("-")
                 .append(pathPart)
